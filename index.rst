@@ -1,13 +1,20 @@
 .. AWorks在线文档 documentation master file, created by
-   sphinx-quickstart on Wed Jul 08 15:06:59 2020.
+   sphinx-quickstart on Wed Jul 08 20:19:38 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-欢迎访问 AWorks在线文档 ！
-
-2.0.0 test
-AWorksOS工业智能物联开发平台是采用面向框架的设计架构，支持平台组件“可插拔、可替换、可配置”、与硬件无关、与操作系统种类无关的方式设计，用户只需修改相应的头文件，即可实现应用代码的跨平台复用。
+Welcome to AWorks在线文档's documentation!
+==========================================
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Contents:
 
-    M105x/index.rst
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
