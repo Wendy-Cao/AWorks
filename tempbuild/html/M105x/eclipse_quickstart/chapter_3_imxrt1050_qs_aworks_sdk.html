@@ -1,0 +1,698 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AWorks SDK开发 &mdash; AWorks在线文档 1.0.0 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="AWorks在线文档 1.0.0 文档" href="../../index.html"/>
+        <link rel="up" title="M1052开发板" href="../index.html"/>
+        <link rel="next" title="免责声明" href="chapter_5_imxrt1050_qs_disclaimer.html"/>
+        <link rel="prev" title="搭建开发环境" href="chapter_2_imxrt1050_qs_soft_install.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> AWorks在线文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">M1052开发板</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#eclipse">eclipse 快速入门</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter_1_imxrt1050_qs_brief.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_2_imxrt1050_qs_soft_install.html">搭建开发环境</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AWorks SDK开发</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eclipse">打开eclipse并建立工作空间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sdk">导入SDK模版工程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compile-project">编译SDK模版工程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-easy-arm-project">调试SDK模版工程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">从模版新建工程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter_5_imxrt1050_qs_disclaimer.html">免责声明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#keil">keil 快速入门</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#sd">sd卡启动</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">AWorks在线文档</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">M1052开发板</a> &raquo;</li>
+      
+    <li>AWorks SDK开发</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/M105x/eclipse_quickstart/chapter_3_imxrt1050_qs_aworks_sdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aworks-sdk">
+<h1>AWorks SDK开发<a class="headerlink" href="#aworks-sdk" title="永久链接至标题">¶</a></h1>
+<p>下面简单介绍一下在eclipse中使用 <code class="docutils literal notranslate"><span class="pre">aworks_m105x_sdk_x.x.x-alpha</span></code> 软件包在M105x_EV_Board开发板上进行应用程序开发的常见操作，
+如工程导入与新建，编译及调试。约定在本文中的 aworks_m105x_sdk_x.x.x-alpha 软件包简称为 SDK，并以{SDK}代表该软件包的根目录。</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">在开始工作前，首先将 <code class="docutils literal notranslate"><span class="pre">aworks_m105x_sdk_x.x.x-alpha</span></code> 软件包拷贝到非中文目录下 ，否则在调试时调试工具链可能会找不到源文件。</p>
+</div>
+<div class="section" id="eclipse">
+<h2>打开eclipse并建立工作空间<a class="headerlink" href="#eclipse" title="永久链接至标题">¶</a></h2>
+<p>首次使用eclipse进行开发时，需要建立合适的工作空间。一个Eclipse可以有多个工作空间，每个工作空间包含了多个项目，以及设置信息，
+例如：界面布局，文字大小，服务器定义等等，应当注意的是，用户在删除工作空间目录的时候，将会删除该工作空间的所有设置信息，
+也可能误删位于工作空间中的项目文件。</p>
+<p>找到解压后的eclipse开发环境软件包目录，点击“startup_eclipse_neon.bat”批处理启动eclipse软件，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_eclipse_startup</span></code> 所示：</p>
+<div class="figure align-center" id="id15">
+<span id="a-picture-eclipse-startup"></span><img alt="../../_images/双击批处理启动eclipse软件.png" src="../../_images/双击批处理启动eclipse软件.png" />
+<p class="caption"><span class="caption-text">双击批处理启动eclipse软件</span></p>
+</div>
+<p>如果第一次打开Eclipse或者打开后没有勾选默认工作空间，软件会自动弹出默认工作空间界面，点击 <strong>【Browse】</strong> 选择eclipse的工作空间，在本文档中将路径设置在“E:WorkSpacert1052”，用户可自行决定路径位置。</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">自己选择的工作空间路径不要有中文,可以避免路径识别问题</p>
+</div>
+<p>如果不需要更改工作空间，勾选上图中红色框中的内容即可。然后点击 <strong>【OK】</strong> 选项，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_eclipse_workspace</span></code> 所示。</p>
+<div class="figure align-center" id="id16">
+<span id="a-picture-eclipse-workspace"></span><img alt="../../_images/建立eclipse的工作空间.png" src="../../_images/建立eclipse的工作空间.png" />
+<p class="caption"><span class="caption-text">建立工作空间</span></p>
+</div>
+<p>打开一个Eclipse只能使用一个工作空间，打开多个Eclipse可以使用多个工作空间，一个工作空间可以有多个项目。另外，同一个项目也可以
+加入到不同的工作空间中，在工作空间目录下有一个名为.metadata的目录来保存所有设置信息，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">metadata</span></code> 所示。</p>
+<div class="figure align-center" id="id17">
+<span id="metadata"></span><a class="reference internal image-reference" href="../../_images/设置信息.png"><img alt="../../_images/设置信息.png" src="../../_images/设置信息.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">设置信息</span></p>
+</div>
+<p>工作空间建立完成后，会进入eclipse界面，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_eclipse_welcome</span></code> 所示。</p>
+<div class="figure align-center" id="id18">
+<span id="a-picture-eclipse-welcome"></span><img alt="../../_images/首次进入eclipse显示界面.png" src="../../_images/首次进入eclipse显示界面.png" />
+<p class="caption"><span class="caption-text">首次进入eclipse显示界面</span></p>
+</div>
+<p>根据 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_eclipse_welcome</span></code> 中的提示，点击关闭 <strong>【Welcome】</strong> ，点击后会自动打开左侧的 <strong>【Project explorer】</strong> 选项框，
+如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_eclipse_null_project</span></code> 所示。</p>
+<div class="figure align-center" id="id19">
+<span id="a-picture-eclipse-null-project"></span><img alt="../../_images/eclipse显示界面.png" src="../../_images/eclipse显示界面.png" />
+<p class="caption"><span class="caption-text">Eclipse显示界面</span></p>
+</div>
+</div>
+<div class="section" id="sdk">
+<span id="name-one"></span><h2>导入SDK模版工程<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h2>
+<p>用户想使用SDK包开发，首先需要导入模版工程，模版工程位于 <strong>{SDK}\projects</strong> 目录下面。
+如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_project_path</span></code> 所示，“img_rt1050_debug”为模板工程。</p>
+<div class="figure align-center" id="id20">
+<span id="a-picture-project-path"></span><img alt="../../_images/模板工程路径.png" src="../../_images/模板工程路径.png" />
+<p class="caption"><span class="caption-text">模板工程路径</span></p>
+</div>
+<p>在 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_eclipse_null_project</span></code> 所标记的 <strong>【Project explorer】</strong> 选项框下面空白处右击后，弹出如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_start_import</span></code> 所示的界面。</p>
+<div class="figure align-center" id="id21">
+<span id="a-picture-start-import"></span><img alt="../../_images/弹出导入工程对话框.png" src="../../_images/弹出导入工程对话框.png" />
+<p class="caption"><span class="caption-text">弹出导入工程对话框</span></p>
+</div>
+<p>在鼠标右击弹出如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_start_import</span></code> 所示的对话框后，依次
+点击“Import”-&gt;“General”-&gt;“Existing Projects into Workspace”-&gt;“Next”-&gt;“Select root directory”-&gt;“Browse”，
+选择该SDK包中的模版工程，填入模版工程的路径为“{SDK}\projects\img_rt1050_debug”，会依次显示如  <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_import_prj</span></code> ， <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_slect_import</span></code> 所示的界面。</p>
+<div class="figure align-center" id="id22">
+<span id="a-picture-import-prj"></span><img alt="../../_images/导入工程.png" src="../../_images/导入工程.png" />
+<p class="caption"><span class="caption-text">导入工程</span></p>
+</div>
+<div class="figure align-center" id="id23">
+<span id="a-picture-slect-import"></span><img alt="../../_images/选择要导入的工程.png" src="../../_images/选择要导入的工程.png" />
+<p class="caption"><span class="caption-text">选择待导入的工程</span></p>
+</div>
+<p>点击 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_slect_import</span></code> 的 <strong>【Finish】</strong> 即可完成导入操作，导入后界面如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_import_ok</span></code> 所示。</p>
+<div class="figure align-center" id="id24">
+<span id="a-picture-import-ok"></span><img alt="../../_images/成功导入SDK模版工程.png" src="../../_images/成功导入SDK模版工程.png" />
+<p class="caption"><span class="caption-text">成功导入SDK模版工程</span></p>
+</div>
+<p>在 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_import_ok</span></code> 中双击模版工程，模版工程目录结构如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_project_dir_struct</span></code> 所示,不同版本的SDK包目录结构可能有些不同。</p>
+<div class="figure align-center" id="id25">
+<span id="a-picture-project-dir-struct"></span><img alt="../../_images/SDK示例工程目录结构.png" src="../../_images/SDK示例工程目录结构.png" />
+<p class="caption"><span class="caption-text">SDK模版工程目录结构</span></p>
+</div>
+<p>在SDK模版工程目录结构中：</p>
+<ul class="simple">
+<li>1-主菜单：包含文件、编辑、源代码、重构、搜索、工程、运行、窗口与帮助等菜单;</li>
+<li>2-工具栏：包含文件工具栏、调试、运行、搜索、浏览工具栏等;</li>
+<li>3-资源管理器视图：用于显示项目中源文件、文本信息、配置信息等；</li>
+<li>4-问题视图：包含了调试编译错误警告的具体信息等；</li>
+<li>5-编辑区间：在此区间内编辑代码；</li>
+<li>6-文件目录：显示了当前.C件所关联的文件；</li>
+<li>7-编辑与调试界面：点击左边为当前编辑界面、右边为Debug时界面；</li>
+</ul>
+<p>在界面中所显示界面并不是无法改变的，用户可自行拖拽更改所在位置、也打开或关闭一些其他视图，IDE会记忆当前界面的改变。</p>
+<p>项目：Eclipse中所有的可以编译运行的资源必须放在项目中，单独打开文件很多功能不可用，项目表示了一系列相关的文件和设置（例如类、路径、编译器级别、发布路径等等的设置）
+一般来说目录下的.project描述了当前项目的信息。</p>
+<p>如果用户在工作空间不需要这个项目，可选择Edit-&gt;Delete或选择工程单击右键选择Delete删除工程，若需要关闭该项目则可以打开项目先选中单个或者多个项目，
+然后选择Project--&gt;Close Project,或者单击右键选择菜单Close Project。</p>
+</div>
+<div class="section" id="compile-project">
+<span id="id1"></span><h2>编译SDK模版工程<a class="headerlink" href="#compile-project" title="永久链接至标题">¶</a></h2>
+<p>如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buid_sdk</span></code> 所示，首先选中左侧的工程，然后点击【编译】按钮 <img alt="a_picture_compile_pulldown" src="../../_images/compile_pulldown.png" /> 的下拉菜单，将显示出六种编译模式，在六种编译模式中:</p>
+<ul class="simple">
+<li>Debug和flexspi_flash_Debug模式下编译代码不会进行优化，编译产生的目标文件最大，此种模式常用于调试代码；</li>
+<li>MinSizeRel和flexspi_flash_MinSizeRel模式下编译代码会进行编译优化和链接优化，生成的目标文件最小；</li>
+<li>Release和flexspi_flash_Release模式为无调试信息的发行版；</li>
+</ul>
+<p>其中Debug、MinSizeRel、Release三种编译模式编译出来的程序可以运行在SDRAM上，flexspi_flash_Debug、flexspi_flash_MinSizeRel、
+flexspi_flash_Release这三种编译模式编译出来的程序可以运行在QSPI Flash上，用户可根据需求选择需要的编译模式。</p>
+<p>以Debug编译模式为例，点击 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buid_sdk</span></code> 中3处的Debug选项，编译工程。</p>
+<div class="figure align-center" id="id26">
+<span id="a-picture-buid-sdk"></span><img alt="../../_images/编译SDK工程.png" src="../../_images/编译SDK工程.png" />
+<p class="caption"><span class="caption-text">编译SDK工程</span></p>
+</div>
+<p>点击编译按钮后，工程进入编译中，出现如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buiding_sdk</span></code> 所示进度条。在 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buiding_sdk</span></code> 中的【Console】窗口，可以查看编译信息，在【Console】窗口可以查看错误警告信息。</p>
+<div class="figure align-center" id="id27">
+<span id="a-picture-buiding-sdk"></span><img alt="../../_images/编译进行中.png" src="../../_images/编译进行中.png" />
+<p class="caption"><span class="caption-text">编译进行中</span></p>
+</div>
+<p>工程编译成功后 如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buid_sdk_complete</span></code> 所示，生成“img_rt1052_debug.elf”文件。</p>
+<div class="figure align-center" id="id28">
+<span id="a-picture-buid-sdk-complete"></span><img alt="../../_images/编译成功.png" src="../../_images/编译成功.png" />
+<p class="caption"><span class="caption-text">编译成功</span></p>
+</div>
+<p>同时在工程目录下会生成一个Debug目录，在Debug目录下可以看到已成功生成“img_rt1052_debug.elf”文件，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buid_target_dir</span></code> 所示：</p>
+<div class="figure align-center" id="id29">
+<span id="a-picture-buid-target-dir"></span><img alt="../../_images/生成Debug目录.png" src="../../_images/生成Debug目录.png" />
+<p class="caption"><span class="caption-text">生成Debug目录</span></p>
+</div>
+<p>如果编译成功后，在Debug目录下没有看到“img_rt1052_debug.elf”文件，选中Debug目录，鼠标右键刷新，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_refresh_debug_dir</span></code> 所示。刷新完成后，将看到 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_buid_target_dir</span></code> 所示“img_rt1052_debug.elf”文件。</p>
+<div class="figure align-center" id="id30">
+<span id="a-picture-refresh-debug-dir"></span><img alt="../../_images/刷新Debug目录.png" src="../../_images/刷新Debug目录.png" />
+<p class="caption"><span class="caption-text">刷新Debug目录</span></p>
+</div>
+</div>
+<div class="section" id="debug-easy-arm-project">
+<span id="id2"></span><h2>调试SDK模版工程<a class="headerlink" href="#debug-easy-arm-project" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<span id="id4"></span><h3>调试配置<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>调试前，需要进行配置(配置只需要一次)，在SDK中已经进行了工程调试的配置，选择 <img alt="a_picture_debug_menu" src="../../_images/debug_menu.png" /> 的下拉菜单，便可以看到已经配置完成了的调试，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_find_dubug_conf</span></code> 所示。</p>
+<div class="figure align-center" id="id31">
+<span id="a-picture-find-dubug-conf"></span><img alt="../../_images/查看调试的配置.png" src="../../_images/查看调试的配置.png" />
+<p class="caption"><span class="caption-text">查看调试的配置</span></p>
+</div>
+<p>如果如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_slect_dubug_conf</span></code> 所示，没有看到调试的配置，则是由于Eclipse的BUG造成，要重新关闭工程再打开工程，参照下面步骤操作即可。如果可以看到配置选项可跳过下面的操作步骤。</p>
+<div class="figure align-center" id="id32">
+<span id="a-picture-slect-dubug-conf"></span><img alt="../../_images/无调试配置.png" src="../../_images/无调试配置.png" />
+<p class="caption"><span class="caption-text">无调试配置</span></p>
+</div>
+<p>1、在工程名单击鼠标右键，点击【Close Project】关闭工程，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_close_project</span></code> 所示；</p>
+<div class="figure align-center" id="id33">
+<span id="a-picture-close-project"></span><img alt="../../_images/close_project.png" src="../../_images/close_project.png" />
+<p class="caption"><span class="caption-text">关闭工程</span></p>
+</div>
+<p>2、然后在工程名单击鼠标右键，点击【Open Project】再次打开工程，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_open_project</span></code> 所示；</p>
+<div class="figure align-center" id="id34">
+<span id="a-picture-open-project"></span><img alt="../../_images/open_project.png" src="../../_images/open_project.png" />
+<p class="caption"><span class="caption-text">打开工程</span></p>
+</div>
+<p>再次选择 <img alt="a_picture_debug_menu" src="../../_images/debug_menu.png" /> 的下拉菜单，就可以看到SDK工程中已经加载了六种调试配置选项，</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">在SDK工程目录下的debug_config文件夹下保存了Debug、MinSizeRel、Release、flexspi flash Debug、 flexspi flash MinSizeRel、flexspi flash Release六种调试配置，用户在导入工程之后，这六种配置将自动生效，可以直接点击 <img alt="a_picture_debug_menu" src="../../_images/debug_menu.png" /> 上的 <img alt="a_picture_debug_browser" src="../../_images/browser.png" /> 进行调试配置的选择。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<span id="id6"></span><h3>连接仿真器<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>J-Link仿真器支持JTAG与SWD两种调试接口，本文中M105x_EV_Board开发板使用的是SWD调试接口，它们引脚的对应关系如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_swd</span></code> 所示。</p>
+<div class="figure align-center" id="id35">
+<span id="a-picture-jlink-swd"></span><img alt="../../_images/jlink.png" src="../../_images/jlink.png" />
+<p class="caption"><span class="caption-text">J-Link与SWD引脚关系对应图</span></p>
+</div>
+<p>查看开发板底板上的版本号，按照 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_swd</span></code> 中SWD引脚根据名称对应连接到J-Link 引脚当中，仿真器就能正确识别出芯片内核与ID了。</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">本文中使用的仿真器为J-Link V9。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>启动方式配置<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>M105x_EV_Board开发板J10模块（启动方式配置模块）如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_WDG</span></code> 所示，调试下载前，用跳线帽短接CFG6和WDG。</p>
+<div class="figure align-center" id="id36">
+<span id="a-picture-wdg"></span><img alt="../../_images/跳线帽.png" src="../../_images/跳线帽.png" />
+<p class="caption"><span class="caption-text">启动模式配置</span></p>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">如果选择下载程序到flash，下载完成后重启时必须拔掉CFG6上的条线帽，并在下次调试下载时再次插上跳线帽。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>目标板上电<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>正确连接好J-Link仿真器后，使用外接的9-12V电源为M105x_EV_Board开发板供电。</p>
+</div>
+<div class="section" id="gdb-server">
+<h3>启动GDB Server<a class="headerlink" href="#gdb-server" title="永久链接至标题">¶</a></h3>
+<p>启动 GDB Server 有两种方式，可以选择启动外部GDB Server，也可以配置从eclipse内部启动GDB Server。</p>
+<p>1.启动外部GDB Server</p>
+<p>在启动GDB Server前将开发板硬件复位，在电脑的“所有程序”中找到J-Link调试软件，即“SEGGER”-&gt;“J-Link ARM V6.14b”-&gt;“J-Link GDB Sever”，打开后如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_open_gdb_server</span></code> 所示：</p>
+<div class="figure align-center" id="id37">
+<span id="a-picture-open-gdb-server"></span><img alt="../../_images/启动gdb_server.png" src="../../_images/启动gdb_server.png" />
+<p class="caption"><span class="caption-text">启动GDB Server软件</span></p>
+</div>
+<p>在如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_open_gdb_server</span></code> 所示的界面中，选择“Target interface”为“SWD”，然后点击“Target device”旁边的按钮选择开发板对应的设备型号，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_select_mcu</span></code> 所示：</p>
+<div class="figure align-center" id="id38">
+<span id="a-picture-select-mcu"></span><img alt="../../_images/选择对应MCU型号.png" src="../../_images/选择对应MCU型号.png" />
+<p class="caption"><span class="caption-text">选择对应设备型号</span></p>
+</div>
+<p>点击 <strong>[Manufactuer]</strong> 下拉框并找到“ZLG-ZY”并选择，下面的列表窗口中会出现一个“M1052”
+设备，单击选中“M1052”后点击 <strong>[OK]</strong> 按钮返回GDB Server的配置界面，然后单击“OK”连接设备。如果出现如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_gdb_server_connect</span></code> 所示界面，如果能检测到CPU的电压，说明GDB Server已经成功连接到目标板。</p>
+<div class="figure align-center" id="id39">
+<span id="a-picture-gdb-server-connect"></span><img alt="../../_images/成功连接到目标板界面.png" src="../../_images/成功连接到目标板界面.png" />
+<p class="caption"><span class="caption-text">成功连接到目标板界面</span></p>
+</div>
+<p>2.从eclipse内部启动GDB Server</p>
+<p>点击 <img alt="a_picture_debug_menu" src="../../_images/debug_menu.png" /> 的下拉菜单，选择【Debug Configurations...】选项，进入GDB启动配置，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_Debug_Configurations</span></code> 所示。</p>
+<div class="figure align-center" id="id40">
+<span id="a-picture-debug-configurations"></span><img alt="../../_images/Debug_Configurations.png" src="../../_images/Debug_Configurations.png" />
+<p class="caption"><span class="caption-text">Debug Configurations</span></p>
+</div>
+<p>进入【Debug Configurations】后，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_Debugging</span></code> 在【GDB SEGGER J-Link Debugging】选项下可看到六种调试模式，选择【img_rt1050_debug Debug】-&gt; 【Debugger】，按照  <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_Debugging</span></code> 配置【Debugger】页面。</p>
+<div class="figure align-center" id="id41">
+<span id="a-picture-debugging"></span><img alt="../../_images/Debugging.png" src="../../_images/Debugging.png" />
+<p class="caption"><span class="caption-text">Debugger页面配置</span></p>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">这两种启动方式，用户任选其一即可，如果选择从eclipse内部启动GDB Server，则必须关闭外部GDB Server软件；如果选择启动外部GDB Server，则必须去掉 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_Debugging</span></code> 中1处的勾选。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>启动调试<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p><strong>1.在SDRAM中调试</strong></p>
+<p>在SDRAM中调试，程序被下载到SDRAM中运行，在elcipse界面中,先选择 <strong>【Debug】</strong> 编译选项编译程序后， 点击如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_slect_dubug_elf</span></code> 所示的 <img alt="a_picture_debug_menu" src="../../_images/debug_menu.png" /> 下拉菜单，选择 <strong>【img_rt1050_debug Debug】</strong> 调试项，程序开始下载到SDRAM。</p>
+<div class="figure align-center" id="id42">
+<span id="a-picture-slect-dubug-elf"></span><img alt="../../_images/选择SDRAM调试项.png" src="../../_images/选择SDRAM调试项.png" />
+<p class="caption"><span class="caption-text">选择SDRAM调试项</span></p>
+</div>
+<p><strong>2.在QSPI Flash中调试</strong></p>
+<p>在QSPI Flash中调试，程序被下载到核心板上的QSPI Flash芯片上运行。先选择 <strong>【flexspi_flash_Debug】</strong> 编译选项编译程序后，点击如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_slect_qspi_dubug_elf</span></code> 所示的 <img alt="a_picture_debug_menu" src="../../_images/debug_menu.png" /> 拉菜单，选择 <strong>【img_rt1050_debug flexspi flash Debug】</strong> 调试项，程序开始下载到QSPI Flash。</p>
+<div class="figure align-center" id="id43">
+<span id="a-picture-slect-qspi-dubug-elf"></span><img alt="../../_images/选择QPSIFlash调试项.png" src="../../_images/选择QPSIFlash调试项.png" />
+<p class="caption"><span class="caption-text">选择QSPI Flash调试项</span></p>
+</div>
+<p>程序下载到QSPI Flash的过程中，会弹出进度提示框，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_burn_progress</span></code> 所示。</p>
+<div class="figure align-center" id="id44">
+<span id="a-picture-burn-progress"></span><img alt="../../_images/下载进度提示.png" src="../../_images/下载进度提示.png" />
+<p class="caption"><span class="caption-text">下载进度提示</span></p>
+</div>
+<p>以在SDRAM中调试为例，程序下载完毕后，会跳出 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_confirm_switch</span></code> 所示界面，勾选【Remember my decision】选项，选择【Yes】进入调试界面，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_gdb_debuging</span></code> 所示。</p>
+<div class="figure align-center" id="id45">
+<span id="a-picture-confirm-switch"></span><img alt="../../_images/选择进入调试界面.png" src="../../_images/选择进入调试界面.png" />
+<p class="caption"><span class="caption-text">选择进入调试界面</span></p>
+</div>
+<div class="figure align-center" id="id46">
+<span id="a-picture-gdb-debuging"></span><img alt="../../_images/调试界面.png" src="../../_images/调试界面.png" />
+<p class="caption"><span class="caption-text">调试界面</span></p>
+</div>
+<p>进入调试界面后，在 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_gdb_debuging</span></code> 中点击 <strong>【通用寄存器窗口】</strong> 标记处可以查看通用寄存器的信息，点击 <strong>【断点窗口】</strong> 标记处可以查看当前断点的设置信息。同时还可以使用以下常用的调试方法对应用程序进行调试：</p>
+<ol class="arabic simple">
+<li>设置断点</li>
+</ol>
+<p>在代码行左边空白处双击鼠标左键可以设置一个断点，设置成功后将出现一个蓝色小圆。如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_set_break_point</span></code> 所示，在main.c这一个源文件的aw_main()函数里面为aw_kprintf()这一行代码设置了一个断点。</p>
+<div class="figure align-center" id="id47">
+<span id="a-picture-set-break-point"></span><img alt="../../_images/设置断点.png" src="../../_images/设置断点.png" />
+<p class="caption"><span class="caption-text">设置断点</span></p>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">所谓断点，即在进入调试模式后，程序运行至此时将自动暂停，再次双击即可取消断点。</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>使用常用调试按钮</li>
+</ol>
+<p>调试过程中，常常需要使用到的操作按钮，它们的作用如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_debug_buttons</span></code> 所示。</p>
+<div class="figure align-center" id="id48">
+<span id="a-picture-debug-buttons"></span><img alt="../../_images/常用调试按钮.png" src="../../_images/常用调试按钮.png" />
+<p class="caption"><span class="caption-text">调试中使用到的操作按钮</span></p>
+</div>
+<p>各按钮的含义如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">debug_button</span></code> 所示。</p>
+<table border="1" class="docutils align-center" id="debug-button">
+<caption><span class="caption-text">各调试按钮含义</span><a class="headerlink" href="#debug-button" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">按钮</th>
+<th class="head">作用</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><img alt="a_picture_start" src="../../_images/start.png" /></td>
+<td>全速运行(遇到断点或手动暂停时暂停程序)</td>
+</tr>
+<tr class="row-odd"><td><img alt="a_picture_suspend" src="../../_images/suspend.png" /></td>
+<td>暂停程序执行(只有当程序处于全速运行状态时有效)</td>
+</tr>
+<tr class="row-even"><td><img alt="a_picture_stop" src="../../_images/stop.png" /></td>
+<td>停止并退出本次调试</td>
+</tr>
+<tr class="row-odd"><td><img alt="a_picture_steipinto" src="../../_images/stepinto.png" /></td>
+<td>单步执行一行程序(遇到函数时，会进入函数继续单步执行)</td>
+</tr>
+<tr class="row-even"><td><img alt="a_picture_stepover" src="../../_images/stepover.png" /></td>
+<td>单步执行一行程序(遇到函数时，函数也被当做一行程序执行)</td>
+</tr>
+<tr class="row-odd"><td><img alt="a_picture_stepexit" src="../../_images/stepexit.png" /></td>
+<td>运行程序至本函数退出</td>
+</tr>
+<tr class="row-even"><td><img alt="a_picture_dissambly" src="../../_images/dissambly.png" /></td>
+<td>调试时用于查看汇编代码</td>
+</tr>
+</tbody>
+</table>
+<p>点击如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_start</span></code> 所示的全速运行图标，程序便会开始全速运行，运行至断点设置处即会自动暂停，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_stop_break_point</span></code> 中红色方框标记部分所示。</p>
+<div class="figure align-center" id="id49">
+<span id="a-picture-start"></span><img alt="../../_images/全速运行.png" src="../../_images/全速运行.png" />
+<p class="caption"><span class="caption-text">全速运行</span></p>
+</div>
+<div class="figure align-center" id="id50">
+<span id="a-picture-stop-break-point"></span><img alt="../../_images/运行至断点设置处.png" src="../../_images/运行至断点设置处.png" />
+<p class="caption"><span class="caption-text">运行至断点设置处</span></p>
+</div>
+<p>如果想观察汇编代码，进行细致的分析，可以点击如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_select_asm</span></code> 所示的汇编图标。</p>
+<div class="figure align-center" id="id51">
+<span id="a-picture-select-asm"></span><img alt="../../_images/选择查看汇编.png" src="../../_images/选择查看汇编.png" />
+<p class="caption"><span class="caption-text">选择查看汇编</span></p>
+</div>
+<p>点击汇编图标后，即可察看汇编代码在运行中显示的情况，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_asm_dispaly</span></code> 所示。</p>
+<div class="figure align-center" id="id52">
+<span id="a-picture-asm-dispaly"></span><img alt="../../_images/汇编查看.png" src="../../_images/汇编查看.png" />
+<p class="caption"><span class="caption-text">汇编查看</span></p>
+</div>
+<p>然后，可以多次点击如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_step_over</span></code> 所示的StepOver图标，观察程序的执行流程。</p>
+<div class="figure align-center" id="id53">
+<span id="a-picture-step-over"></span><img alt="../../_images/函数单步运行.png" src="../../_images/函数单步运行.png" />
+<p class="caption"><span class="caption-text">函数单步运行</span></p>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>停止调试<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>若不再需要调试程序，则点击如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_debug_stop</span></code> 所示的停止调试图标退出调试，停止调试后，GDB Server将停止连接。</p>
+<div class="figure align-center" id="id54">
+<span id="a-picture-debug-stop"></span><img alt="../../_images/退出调试.png" src="../../_images/退出调试.png" />
+<p class="caption"><span class="caption-text">退出调试</span></p>
+</div>
+<p>退出调试之后，可以点击 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_back_c</span></code> 中的小红色方框，可使其回到代码编辑窗口，即回到如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_import_ok</span></code> 所示的界面。</p>
+<div class="figure align-center" id="id55">
+<span id="a-picture-back-c"></span><img alt="../../_images/返回代码编辑窗口.png" src="../../_images/返回代码编辑窗口.png" />
+<p class="caption"><span class="caption-text">返回代码编辑窗口</span></p>
+</div>
+<p>回到代码编辑窗口后，此时用户可以重新编辑修改代码，修改完成并重新编译通过后，可按照 <code class="xref std std-numref docutils literal notranslate"><span class="pre">{number}</span></code> 小节介绍的方法再一次进入调试.</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">如果需要再次调试，在启动GDB Server前需要将开发板硬件复位。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>从模版新建工程<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>用户无需“从零”开始建立工程，这里可以通过以复制模板工程再粘贴的形式快
+速创建新的工程，具体如下。</p>
+<div class="section" id="id12">
+<h3>新建工程<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>当模板工程正确导入eclipse之后，我们可以基于模板工程新建自己的工程。步骤如下：</p>
+<p>1、首先在模版工程img_rt1050_debug同一级目录下建立一个名为led的空文件夹，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_lde_new</span></code> 所示。</p>
+<div class="figure align-center" id="id56">
+<span id="a-picture-lde-new"></span><img alt="../../_images/led_project.png" src="../../_images/led_project.png" />
+<p class="caption"><span class="caption-text">建立led文件夹</span></p>
+</div>
+<p>2、然后在eclipse中选中模板工程img_rt1050_debug，并且右键单击弹出菜单，在菜单中选择 <strong>【Copy】</strong> 选项，复制当前工程，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_project_copy</span></code> 所示。</p>
+<div class="figure align-center" id="id57">
+<span id="a-picture-project-copy"></span><img alt="../../_images/复制工程.png" src="../../_images/复制工程.png" />
+<p class="caption"><span class="caption-text">复制模板工程</span></p>
+</div>
+<p>3、复制模板工程成功后，鼠标光标放在 <strong>【Project explorer】</strong> 选项框一侧的任意空白处，然后再右键单击弹出菜单，在菜单中选择 <strong>【Paste】</strong> 选项后，即可以粘贴新建一个工程，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_project_paste</span></code> 所示。</p>
+<div class="figure align-center" id="id58">
+<span id="a-picture-project-paste"></span><img alt="../../_images/粘贴工程.png" src="../../_images/粘贴工程.png" />
+<p class="caption"><span class="caption-text">粘贴新建一个工程</span></p>
+</div>
+<p>也可以使用复制快捷键 <em>Ctrl + C</em> 、粘贴快捷键 <em>Ctrl + V</em> 来新建工程。</p>
+<p>4、在接下来弹出的对话框中，首先修改工程的名字，如命名为led；其次去掉勾选 <strong>【Use default location】</strong> ；再次，点击 <strong>【Browse】</strong> 选择刚刚新建的led目录“{SDK}\projects\led”存放新建工程；最后点击 <strong>【OK】</strong> 选项完成设置，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_project_set_path</span></code> 所示。</p>
+<div class="figure align-center" id="id59">
+<span id="a-picture-project-set-path"></span><img alt="../../_images/保存工程.png" src="../../_images/保存工程.png" />
+<p class="caption"><span class="caption-text">设置新建工程的名字和保存路径</span></p>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">新建工程的名字采用英文字母与阿拉伯数字表示且不带空格。新工程最好放在与模板工程 img_imx28x_debug 同级目录下面，这样可以不用设置工程的头文件路径之类的操作。</p>
+</div>
+<p>设置完成工程名字和保存路径之后，“{SDK}\projects\led”目录下会出现工程文件(这是自己的led工程文件)，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_sdk_led</span></code> 所示，</p>
+<div class="figure align-center" id="id60">
+<span id="a-picture-sdk-led"></span><img alt="../../_images/SDK目录下的led文件夹.png" src="../../_images/SDK目录下的led文件夹.png" />
+<p class="caption"><span class="caption-text">SDK目录下新增的led文件夹</span></p>
+</div>
+<p>【Project explorer】选项框中会增加一个“led”的工程，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_project_create</span></code> 所示。</p>
+<div class="figure align-center" id="id61">
+<span id="a-picture-project-create"></span><img alt="../../_images/新建工程成功.png" src="../../_images/新建工程成功.png" />
+<p class="caption"><span class="caption-text">Project explorer增加了新建的工程</span></p>
+</div>
+<p>led工程复制完成后，关闭【Project explorer】选项框中的模版工程，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_close_template</span></code> 。</p>
+<div class="figure align-center" id="id62">
+<span id="a-picture-close-template"></span><img alt="../../_images/关闭模版工程.png" src="../../_images/关闭模版工程.png" />
+<p class="caption"><span class="caption-text">关闭模板工程</span></p>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>修改工程的刷新策略<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>由于当前 led 工程是从模板工程复制粘贴来新建立的，它还会使用模板工程来作为刷新策略，因此 led 工程它的刷新策略需要变更为其自身。
+依次点击  “Project”-&gt;“Properties”-&gt;“C/C++ Build” -&gt;“Refresh Policy”，在显示的界面进行如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_remove_refresh</span></code> 所示的操作。</p>
+<div class="figure align-center" id="id63">
+<span id="a-picture-remove-refresh"></span><img alt="../../_images/移除模板工程的刷新策略.png" src="../../_images/移除模板工程的刷新策略.png" />
+<p class="caption"><span class="caption-text">移除模板工程的刷新策略</span></p>
+</div>
+<p>删除 led 工程基于模板工程的刷新策略后，添加基于 led 工程其自身的刷新策
+略，具体操作如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_add_refresh</span></code> 所示。</p>
+<div class="figure align-center" id="id64">
+<span id="a-picture-add-refresh"></span><img alt="../../_images/变更led工程刷新策略为其自身.png" src="../../_images/变更led工程刷新策略为其自身.png" />
+<p class="caption"><span class="caption-text">变更led工程刷新策略为其自身</span></p>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>调试选项的配置<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>删除led工程中已有的调试配置，选中led工程“debug_config”目录下的“img_rt1050_debug Debug.launch”、“img_rt1050_debug MinSizeRel.launch”、“img_rt1050_debug Release.launch”、“img_rt1050_debug flexspi flash Debug.launch”、“img_rt1050_debug flexspi flash MinSizeRel.launch”、“img_rt1050_debug flexspi flash Release.launch”这六个文件并删除，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_del_launch</span></code> 所示。</p>
+<div class="figure align-center" id="id65">
+<span id="a-picture-del-launch"></span><img alt="../../_images/删除调试配置文件.png" src="../../_images/删除调试配置文件.png" />
+<p class="caption"><span class="caption-text">删除调试配置文件</span></p>
+</div>
+<p>删除调试文件后，选中led工程中的Debug文件夹删除，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_led_debug_delete</span></code> 所示。</p>
+<div class="figure align-center" id="id66">
+<span id="a-picture-led-debug-delete"></span><img alt="../../_images/删除led工程中的Debug文件夹.png" src="../../_images/删除led工程中的Debug文件夹.png" />
+<p class="caption"><span class="caption-text">删除led工程中的Debug文件夹</span></p>
+</div>
+<p>删除Debug文件夹之后，需要手动配置led工程的调试文件，在配置之前首先编译工程，编译操作参照 <code class="xref std std-numref docutils literal notranslate"><span class="pre">{number}</span></code> 小节。</p>
+<p>编译完成后，点击【Debug Configurations...】，进入调试配置的界面，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_enter_debug</span></code> 所示。</p>
+<div class="figure align-center" id="id67">
+<span id="a-picture-enter-debug"></span><img alt="../../_images/选择进入调试配置.png" src="../../_images/选择进入调试配置.png" />
+<p class="caption"><span class="caption-text">选择进入调试配置</span></p>
+</div>
+<p>进入调试配置界面后如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_double_click_debug</span></code> 所示，双击【GDB SEGGER J-Link Debugging】选项后，生成“led Debug”调试配置项。</p>
+<div class="figure align-center" id="id68">
+<span id="a-picture-double-click-debug"></span><img alt="../../_images/双击生成led调试选项.png" src="../../_images/双击生成led调试选项.png" />
+<p class="caption"><span class="caption-text">双击生成led调试选项</span></p>
+</div>
+<p>接下来进行“led Debug”调试项的配置：</p>
+<p>1、首先选中“led debug”调试项，选择【Main】界面进行配置，点击【Search Project...】选择调试文件，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_click_search_project</span></code> 所示。</p>
+<div class="figure align-center" id="id69">
+<span id="a-picture-click-search-project"></span><img alt="../../_images/选择调试文件.png" src="../../_images/选择调试文件.png" />
+<p class="caption"><span class="caption-text">选择调试文件</span></p>
+</div>
+<p>最后选择【Disable auto build】选项，点击 【Apply】保存配置，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_led_elf</span></code> 。</p>
+<div class="figure align-center" id="id70">
+<span id="a-picture-led-elf"></span><img alt="../../_images/点击Apply保存配置1.png" src="../../_images/点击Apply保存配置1.png" />
+<p class="caption"><span class="caption-text">点击Apply保存配置</span></p>
+</div>
+<p>2、【Debugger】界面配置，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_conf_debugger_window</span></code> ，首先在1处填写设备名称，其次去掉2处勾选，再次在3处输入&quot;--command=easy_arm_rt1050_sdram.gdb&quot;，最后保存配置。</p>
+<div class="figure align-center" id="id71">
+<span id="a-picture-conf-debugger-window"></span><img alt="../../_images/配置Debugger界面.png" src="../../_images/配置Debugger界面.png" />
+<p class="caption"><span class="caption-text">配置Debugger界面</span></p>
+</div>
+<p>3.【Startup】界面配置，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_conf_startup_window</span></code> 所示。</p>
+<div class="figure align-center" id="id72">
+<span id="a-picture-conf-startup-window"></span><img alt="../../_images/配置Startup界面.png" src="../../_images/配置Startup界面.png" />
+<p class="caption"><span class="caption-text">配置Startup界面</span></p>
+</div>
+<p>4.【Source】界面保持默认设置。</p>
+<p>5.【Common】界面配置，首先选择2处【Shared file:】选项，然后点击3处【Browse】按钮，选择“\led\debug_config”文件夹，点击【OK】退出，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_conf_common_window</span></code> 所示。</p>
+<div class="figure align-center" id="id73">
+<span id="a-picture-conf-common-window"></span><img alt="../../_images/配置Common界面.png" src="../../_images/配置Common界面.png" />
+<p class="caption"><span class="caption-text">配置Common界面</span></p>
+</div>
+<p>最后在【Debug】选项打勾，点击【Apply】保存配置，点击【Close】退出，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_close_led_debug</span></code> 。</p>
+<div class="figure align-center" id="id74">
+<span id="a-picture-close-led-debug"></span><img alt="../../_images/保存并退出调试配置.png" src="../../_images/保存并退出调试配置.png" />
+<p class="caption"><span class="caption-text">配置Common界面</span></p>
+</div>
+<p>至此完成了从模板工程新建一个新工程，我们可以开始在新工程上开发自己的应用。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chapter_5_imxrt1050_qs_disclaimer.html" class="btn btn-neutral float-right" title="免责声明" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="chapter_2_imxrt1050_qs_soft_install.html" class="btn btn-neutral" title="搭建开发环境" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, cao.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+D:\Python27\Scripts\sphinx-build.exe %*

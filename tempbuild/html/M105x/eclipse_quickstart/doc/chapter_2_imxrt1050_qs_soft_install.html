@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>搭建开发环境 &mdash; AWorks在线文档 1.0.0 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../../search.html"/>
+    <link rel="top" title="AWorks在线文档 1.0.0 文档" href="../../../index.html"/>
+        <link rel="up" title="eclipse 快速入门文档" href="../index.html"/>
+        <link rel="next" title="AWorks SDK开发" href="chapter_3_imxrt1050_qs_aworks_sdk.html"/>
+        <link rel="prev" title="简介" href="chapter_1_imxrt1050_qs_brief.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> AWorks在线文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">eclipse 快速入门文档</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chapter_1_imxrt1050_qs_brief.html">简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">搭建开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse">Eclipse集成开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#j-link">J-Link仿真环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">J-Link软件安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">J-Link仿真器驱动安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#j-linkm1052">为J-Link添加对M1052的支持</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_3_imxrt1050_qs_aworks_sdk.html">AWorks SDK开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_3_imxrt1050_qs_aworks_sdk.html#eclipse">打开eclipse并建立工作空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_3_imxrt1050_qs_aworks_sdk.html#sdk">导入SDK模版工程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_3_imxrt1050_qs_aworks_sdk.html#compile-project">编译SDK模版工程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_3_imxrt1050_qs_aworks_sdk.html#debug-easy-arm-project">调试SDK模版工程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_3_imxrt1050_qs_aworks_sdk.html#id11">从模版新建工程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html">Eclipse使用技巧</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id1">设置编译前自动保存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id2">文件链接或修改结构目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id3">头文件路径添加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id4">链接脚本文件的查看与更改</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id5">链接库文件添加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id6">代码编译优化等级调整</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id7">使用并行编译方式进行代码编译</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#tab">置空格代替TAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#c-c">设置代码编辑框内C/C++字体大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id8">打开未知类型文件出错的解决方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id9">设置eclipse外观风格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id11">常规操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_4_imxrt1050_qs_eclipse_useskill.html#id12">常用快捷键</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter_5_imxrt1050_qs_disclaimer.html">免责声明</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">AWorks在线文档</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">eclipse 快速入门文档</a> &raquo;</li>
+      
+    <li>搭建开发环境</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/M105x/eclipse_quickstart/doc/chapter_2_imxrt1050_qs_soft_install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>搭建开发环境<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+</div>
+<div class="section" id="eclipse">
+<h1>Eclipse集成开发环境<a class="headerlink" href="#eclipse" title="永久链接至标题">¶</a></h1>
+<p>Eclipse是一个开放源代码、基于Java的可扩展开发平台，同时它也是著名的、跨平台的自由集成开发环境（IDE）。</p>
+<p>要使用Eclipse，需要正确安装 Java 运行环境，并针对特定的开发语言（如C/C++）和程序最终运行的目标平台（如Cortex-M、ARM、Cortex-A）安装相应的工具链、交叉编译器等相关的插件。这些安装过程都是相对复杂的，容易出错，特别是各种工具对环境变量的要求和影响等。为避免用户自己在安装开发环境软件时出现一些问题，我们提供了一个 eclipse 开发环
+境软件包 <strong>“eclipse_neon_2016q3_x86.7z”</strong> ，其包含了 eclipse 软件、java 运行环境及相关的插件。用户拿到软件包后，直接解压后即可使用，无需其它任何安装过程，解压出的软件包目录如picture_所示。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">推荐使用7z压缩软件解压 <strong>eclipse_neon_2016q3_x86.7z</strong> 软件包，注意该软件包不能解压到过深的路径，否则会出现解压失败的问题，eclipse软件可通过目录 <strong>“ide”</strong> 下的链接获取。</p>
+</div>
+<p>dsdsh感想三盯 <a class="reference internal" href="#picture">picture</a> 。</p>
+<img alt="../../../_images/eclipse开发环境软件包.png" class="align-center" src="../../../_images/eclipse开发环境软件包.png" />
+<p>test</p>
+<p>Clicking on this internal hyperlink will take us to the <a class="reference internal" href="#target">target</a>
+below.</p>
+<p id="target">The hyperlink target above points to this paragraph.</p>
+<p id="target2"><span id="target1"></span>The targets &quot;target1&quot; and &quot;target2&quot; are synonyms; they both
+point to this paragraph.</p>
+<p>防护等级发和 <a class="reference external" href="link-block">hyperlink-name</a> 于</p>
+<ul class="simple">
+<li><strong>eclipse</strong> 目录下为neon版本的eclipse软件。</li>
+<li><strong>GNU Tools ARM Embedded</strong> 目录下为GCC-ARM工具链，Eclipse只是一个框架，需要使用GCC-ARM的编译和调试工具链。</li>
+<li><strong>java</strong> 目录下为java运行环境(jre)，JRE是Sun（现在是甲骨文公司旗下的公司）的产品，是运行eclipse所必须的环境集合。</li>
+<li><strong>msys</strong> 目录下为msys 1.0软件，msys是一个小型的GUN环境，包括了基本的bash、make等工具，Eclipse需要使用msys提供的make工具。</li>
+<li><strong>startup_eclipse_neon.bat</strong> 为启动eclipse的批处理脚本，运行该脚本会自动设置jre和GCC-ARM工具链的环境变量并启动eclipse软件。</li>
+</ul>
+<p>用户需要使用eclipse进行开发时，只需双击 <strong>startup_eclipse_neon.bat</strong> 脚本启动eclipse后，导入SDK示例工程即可进行编译和调试，可见eclipse的开发环境搭建非常简单。</p>
+</div>
+<div class="section" id="j-link">
+<h1>J-Link仿真环境<a class="headerlink" href="#j-link" title="永久链接至标题">¶</a></h1>
+<p>J-Link 是SEGGER 公司为支持仿真ARM 内核芯片推出的同时支持JTAG/SWD调试接口的仿真器。配合Eclipse，IAR EWAR，ADS，KEIL，WINARM，RealView等集成开发环境支持所有Cortex-M、Cortex-R4、ARM7、ARM9、ARM11 内核芯片的仿真，通过RDI 接口和各集成开发环境无缝连接。</p>
+<div class="section" id="id2">
+<h2>J-Link软件安装<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>J-Link仿真器可以作为开发板的仿真调试器，首次使用需要安装J-Link 软件，可通过 <strong>“ide”</strong> 目录中的链接获取。</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<p class="last">V614b 版本 JLink 兼容性较好，推荐使用此版本。</p>
+</div>
+<p>左键双击J-link软件后，开始进行安装，安装过程如下：</p>
+<p>1、软件开始安装后，在安装向导页面点击 <strong>【Next】</strong>，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_install1</span></code> 所示。</p>
+<div class="figure align-center" id="id4">
+<span id="a-picture-jlink-install1"></span><img alt="../../../_images/安装向导1.png" src="../../../_images/安装向导1.png" />
+<p class="caption"><span class="caption-text">J-Link软件安装向导</span></p>
+</div>
+<p>2、点击 <strong>【I Agree】</strong>，使安装能往下进行，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_install2</span></code> 所示。</p>
+<div class="figure align-center" id="id5">
+<span id="a-picture-jlink-install2"></span><img alt="../../../_images/安装向导2.png" src="../../../_images/安装向导2.png" />
+<p class="caption"><span class="caption-text">J-Link软件安装向导</span></p>
+</div>
+<p>3、选择安装路径为默认安装路径(如有特殊需要可点击 <strong>【Browse】</strong> 选择其它安装路径)，然后点击 <strong>【Install】</strong>，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_install3</span></code> 所示。</p>
+<div class="figure align-center" id="id6">
+<span id="a-picture-jlink-install3"></span><img alt="../../../_images/J-Link软件选择安装目录.png" src="../../../_images/J-Link软件选择安装目录.png" />
+<p class="caption"><span class="caption-text">J-Link软件选择安装目录</span></p>
+</div>
+<p>4、等待安装完成后，会弹出提示界面，点击 <strong>【Finish】</strong> 结束安装，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_install4</span></code> 所示。</p>
+<div class="figure align-center" id="id7">
+<span id="a-picture-jlink-install4"></span><img alt="../../../_images/J-link软件安装完成.png" src="../../../_images/J-link软件安装完成.png" />
+<p class="caption"><span class="caption-text">J-Link软件成功安装</span></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>J-Link仿真器驱动安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>首次使用J-Link仿真器时，一般情况下，如果安装了J-Link软件，只要用USB线将PC机和J-Link仿真器连接起来，即可自动完成驱动的安装。驱动安装完成后，可以在设备管理器（鼠标选中计算机-&gt;右键-&gt;管理-&gt;设备管理器）中看到J-Link设备，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_deinstall1</span></code> 所示。</p>
+<div class="figure align-center" id="id8">
+<span id="a-picture-jlink-deinstall1"></span><img alt="../../../_images/驱动正确安装.png" src="../../../_images/驱动正确安装.png" />
+<p class="caption"><span class="caption-text">J-Link仿真器驱动已正确安装</span></p>
+</div>
+<p>若无法自动完成安装，将如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_deinstall2</span></code> 所示，此时需要手动安装，按照下面步骤操作即可。如果已自动完成安装可跳过下面步骤。</p>
+<div class="figure align-center" id="id9">
+<span id="a-picture-jlink-deinstall2"></span><img alt="../../../_images/驱动安装出错.png" src="../../../_images/驱动安装出错.png" />
+<p class="caption"><span class="caption-text">J-Link仿真器驱动安装出错</span></p>
+</div>
+<p>1、通过USB数据线将J-Link仿真器和PC机连接起来，打开设备管理器（鼠标选中计算机-&gt;右键-&gt;管理-&gt;设备管理器），打开后如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_deinstall2</span></code> 所示。可以看到 <strong>【其它设备】</strong> 中，有一个带黄色感叹号的 <strong>【J-Link】</strong>。</p>
+<p>2、双击带黄色感叹号的 <strong>【J-Link】</strong>，选中右击后，选择 <strong>【更新驱动程序】</strong>。接着弹出选择如何搜索驱动程序软件对话框，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_deinstall3</span></code> 所示，在图中选择 <strong>【浏览计算机以查找驱动程序软件】</strong> 这一选项。</p>
+<div class="figure align-center" id="id10">
+<span id="a-picture-jlink-deinstall3"></span><img alt="../../../_images/选择更新驱动程序的方式.png" src="../../../_images/选择更新驱动程序的方式.png" />
+<p class="caption"><span class="caption-text">选择更新驱动程序的方式</span></p>
+</div>
+<p>3、接着设置驱动程序路径，如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_deinstall4</span></code> 所示，填入J-Link软件安装目录下相应驱动程序的路径即可，也可以选择 <strong>【浏览】</strong> 找到驱动程序的目录。对应的驱动程序路径即为：C:\Program Files (x86)\SEGGER\JLink_V614b\USBDriver\x64，如果是32位系统，路径的末尾应该是x86。选择路径后，直接点击 <strong>【下一步】</strong> 进入驱动安装，等待安装结束即可</p>
+<div class="figure align-center" id="id11">
+<span id="a-picture-jlink-deinstall4"></span><img alt="../../../_images/选择驱动程序路径.png" src="../../../_images/选择驱动程序路径.png" />
+<p class="caption"><span class="caption-text">选择驱动程序路径</span></p>
+</div>
+<p>安装结束后，可以在设备管理器中看到如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_jlink_deinstall1</span></code> 所示的界面，表明驱动已经正确安装，J-Link仿真器可以正常使用。</p>
+</div>
+<div class="section" id="j-linkm1052">
+<h2>为J-Link添加对M1052的支持<a class="headerlink" href="#j-linkm1052" title="永久链接至标题">¶</a></h2>
+<p>J-Link软件默认不支持M1052核心板上的IS25LP064A Flash的烧写，但是J-Link软件在6.00及以上的版本中可由用户自己添加Flash设备的支持，因此，为了方便用户使用J-Link工具烧写固件到IS25LP064A Flash中，开发了对应的烧写算法FLM文件，用户只需手动配置以下两个步骤。</p>
+<p>1.添加FLM</p>
+<p>复制光盘资料中 <strong>“tools\M1052_IS25LP064A_FLM”</strong> 目录下的“M1052”文件夹(存放了“M1052_IS25LP064A.FLM”)到 “C:\Program Files (x86)\SEGGER\JLink_V614b\Devices” (此路径为JLink V614b的默认安装目录，用户需要根据自己的安装目录选择)目录下。复制后如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_devices_dir</span></code> 所示：</p>
+<div class="figure align-center" id="id12">
+<span id="a-picture-devices-dir"></span><img alt="../../../_images/Devices目录结构.png" src="../../../_images/Devices目录结构.png" />
+<p class="caption"><span class="caption-text">J-Link的Devices目录</span></p>
+</div>
+<p>2.修改JLinkDevices.xml文件</p>
+<p>用编辑器打开 “SEGGER\JLink_V614b” 目录下的“JLinkDevices.xml”文件，在文末的“&lt;/Device&gt;”之后，“&lt;/DataBase&gt;”之前添加如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">JLink_add_device</span></code> 所示的代码。</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="jlink-add-device">
+<div class="code-block-caption"><span class="caption-text">添加QSPI Flash设备</span><a class="headerlink" href="#jlink-add-device" title="永久链接至代码">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Device</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">ChipInfo</span> <span class="n">Vendor</span><span class="o">=</span><span class="s">&quot;ZLG-ZY&quot;</span>
+            <span class="n">Name</span><span class="o">=</span><span class="s">&quot;M1052&quot;</span>
+            <span class="n">WorkRAMAddr</span><span class="o">=</span><span class="s">&quot;0x20000000&quot;</span>
+            <span class="n">WorkRAMSize</span><span class="o">=</span><span class="s">&quot;0x00020000&quot;</span>
+            <span class="n">Core</span><span class="o">=</span><span class="s">&quot;JLINK_CORE_CORTEX_M7&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">FlashBankInfo</span> <span class="n">Name</span><span class="o">=</span><span class="s">&quot;QSPI Flash&quot;</span>
+                 <span class="n">BaseAddr</span><span class="o">=</span><span class="s">&quot;0x60000000&quot;</span>
+                 <span class="n">MaxSize</span><span class="o">=</span><span class="s">&quot;0x00800000&quot;</span>
+                 <span class="n">Loader</span><span class="o">=</span><span class="s">&quot;Devices\M1052\M1052_IS25LP064A.FLM&quot;</span>
+                 <span class="n">LoaderType</span><span class="o">=</span><span class="s">&quot;FLASH_ALGO_TYPE_CMSIS&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">Device</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div></blockquote>
+<p>因为是XML代码，需特别注意代码的对齐，修改完成的JLinkDevices.xml文件代码片段如 <code class="xref std std-numref docutils literal notranslate"><span class="pre">a_picture_xml</span></code> 所示：</p>
+<div class="figure align-center" id="id13">
+<span id="a-picture-xml"></span><img alt="../../../_images/修改后的xml文件.png" src="../../../_images/修改后的xml文件.png" />
+<p class="caption"><span class="caption-text">修改后的XML文件</span></p>
+</div>
+<p>修改代码的操作比较麻烦，也可以直接拷贝 “tools\M1052_IS25LP064A_FLM” 目录下的“JLinkDevices.xml”并覆盖掉 “SEGGER\JLink_V614b” 目录下的“JLinkDevices.xml”。</p>
+<p>至此， 基于i.MX RT1050的eclipse快速入门所需要的开发环境已经搭建完毕。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chapter_3_imxrt1050_qs_aworks_sdk.html" class="btn btn-neutral float-right" title="AWorks SDK开发" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="chapter_1_imxrt1050_qs_brief.html" class="btn btn-neutral" title="简介" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, cao.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
