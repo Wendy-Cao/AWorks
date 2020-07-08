@@ -1,1 +1,0 @@
-D:\Python27\Scripts\sphinx-quickstart.exe %*
