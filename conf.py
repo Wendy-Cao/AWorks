@@ -50,8 +50,8 @@ extensions = [
     'sphinx.ext.githubpages',
 ]
 
-# Add any paths that contain temptemplates here, relative to this directory.
-temptemplates_path = ['temptemplates']
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['temptemplates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -71,7 +71,7 @@ language = u'zh'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-# This pattern also affects html_tempstatic_path and html_extra_path.
+# This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [u'pbuild', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
@@ -91,18 +91,18 @@ html_theme = 'sphinx_rtd_theme'
 #
 # html_theme_options = {}
 
-html_favicon = 'tempstatic/pdflogo.ico'
+html_favicon = 'static/pdflogo.ico'
 
-# Add any paths that contain custom tempstatic files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin tempstatic files,
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_tempstatic_path = ['tempstatic']
+html_static_path = ['tempstatic']
 
-# Custom sidebar temptemplates, must be a dictionary that maps document names
+# Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
 # The default sidebars (for documents that don't match any pattern) are
-# defined by theme itself.  Builtin themes are using these temptemplates by
+# defined by theme itself.  Builtin themes are using these templates by
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
 #
